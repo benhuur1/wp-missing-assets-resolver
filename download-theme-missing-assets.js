@@ -4,16 +4,17 @@ const path = require('path')
 const { https, http } = require('follow-redirects')
 const mysql = require('mysql2/promise')
 
-const prodDomain = 'https://www.blackrun.com.br'
+require('dotenv').config()
+const prodDomain = process.env.PROD_DOMAIN
 
 async function getActiveThemeDir() {
   const db = {
-    host: '127.0.0.1',
-    port: 32769,
-    user: 'wordpress',
-    password: 'wordpress',
-    database: 'wordpress',
-    charset: 'utf8mb4',
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    charset: process.env.DB_CHARSET,
   }
   const conn = await mysql.createConnection(db)
   const [rows] = await conn.query(
