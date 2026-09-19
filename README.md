@@ -20,7 +20,7 @@ Ferramenta Node.js para identificar e baixar automaticamente imagens ausentes do
 
 1. Instale as dependências:
    ```bash
-   npm install mysql2 follow-redirects
+   npm install mysql2 follow-redirects dotenv
    ```
 2. Ajuste as credenciais do banco de dados nos arquivos de script, se necessário.
 
